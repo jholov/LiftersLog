@@ -1,0 +1,9 @@
+//#page{
+    font-family: 'Courier New', Courier, monospace;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "logo logo headline headline ."
+                         ". inputs inputs inputs ."
+                         ". inputs inputs inputs ."
+                         ". . . . .";
+}
