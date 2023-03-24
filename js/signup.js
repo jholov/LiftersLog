@@ -1,3 +1,5 @@
+
+
 function addForm(){
     //adds first name label
     let newFirst = document.createElement("label");
@@ -26,14 +28,14 @@ function addForm(){
 
     //adds username label
     let newUser = document.createElement("label");
-    newUser.setAttribute("for", "uname");
+    newUser.setAttribute("for", "newuname");
     newUser.innerHTML=("Username");
     formLoc.appendChild(newUser);
 
     //adds username input
     let userInput = document.createElement("input")
     userInput.setAttribute("type","text");
-    userInput.setAttribute("name","uname");
+    userInput.setAttribute("name","newuname");
     formLoc.appendChild(userInput);
 
     //adds password label
@@ -45,17 +47,19 @@ function addForm(){
     //adds password input
     let passInput = document.createElement("input");
     passInput.setAttribute("type","password");
-    passInput.setAttribute("name","pass");
+    passInput.setAttribute("id","pass1")
+    passInput.setAttribute("name","newpass");
     formLoc.appendChild(passInput);
 
     //adds password2 label
     let newPass2 = document.createElement("label");
     newPass2.setAttribute("for","pass");
-    newPass2.innerHTML=("Password");
+    newPass2.innerHTML=("Confirm Password");
     formLoc.appendChild(newPass2);
 
     let passInput2 = document.createElement("input");
-    passInput2.setAttribute("type","password2");
+    passInput2.setAttribute("type","password");
+    passInput2.setAttribute("id","pass2");
     passInput2.setAttribute("name","pass2");
     formLoc.appendChild(passInput2);
 
@@ -69,5 +73,26 @@ function addForm(){
 }
 
 function checkPass(){
-   let pw = document.getElementBytype
+   let allowPass = true;
+   let pwOne = document.getElementById("pass1").value;
+   let pwTwo = document.getElementById("pass2").value;
+
+   if(pwOne =="" || pwTwo ==""){
+
+    alert("Please Enter a Password");
+    allowPass = !allowPass;
+    
+   }
+
+   if(pwOne != pwTwo){
+
+    alert("Passwords Do Not Match");
+    allowPass = !allowPass;
+    
+   }else if(allowPass === true){
+
+    alert("Password Accepted");
+    location.reload();
+    
+    }
 }

@@ -37,4 +37,24 @@
         }
 
     }
+
+    if(isset($_POST['signbtn'])){
+        $firstname = $_POST['first'];
+        $lastname = $_POST['last'];
+        $newuser = $_POST['newuname'];
+        $newpass = $_POST['newpass'];
+
+        //datebase insert SQL code
+        $newsql = "INSERT INTO 'users'('first_name', 'last_name', 'user_name', 'password') VALUES ('$firstname', '$lastname', '$newuser', '$newpass')";
+
+        //insert into database
+        $nu = mysqli_query($mysql_connect, $newsql);
+
+        if($nu)
+        {
+        echo("You Have Successfully Signed Up!");
+        }
+
+    }
+
 ?>
