@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <div id = page>
+        <Head>
+            <title>Lifter's Log Sign Up</title>
+            <link rel="stylesheet" href="CSS/login.css">
+        </Head>
+        <body>
+            <div id = "logo">
+                <img id="logo" src="img/lifterslog.png" alt="logo" height="300px" width="500px">
+            </div>
+            <div id = "headline">
+                <h1>Welcome to Lifter's Log</h1>
+            </div>
+            <form action="index.php" method="post">
+                <div id = "inputs">
+                    <div class="icontainer">
+                        <label for ="first"><b>First Name</b></label>
+                        <input type = "text" name="first">
+    
+                        <label for = "last"><b>Last Name</b></label>
+                        <input type = "text" name="last">
+    
+                        <label for = "newuname"><b>Username</b></label>
+                        <input type = "text" name="newuname">
+    
+                        <label for = "password"><b>Password</b></label>
+                        <input type = "text" id="newpass" name="newpass">
+
+                        <label for ='confirmpass'><b>Confirm Password</b></label>
+                        <input type ="text" id="confirmpass" name="confirmpass">
+    
+                        <button type ="submit" onclick="checkPass()" name ="submit" >Submit</button>
+                    </div>
+                </div>
+            </form>
+            <script src="js/signup.js"></script>
+        </body>
+    </div>
+</html>

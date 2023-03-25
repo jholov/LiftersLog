@@ -1,6 +1,6 @@
 
 
-function addForm(){
+/*function addForm(){
     //adds first name label
     let newFirst = document.createElement("label");
     newFirst.setAttribute("name", "fname");
@@ -70,12 +70,12 @@ function addForm(){
     subBtn.setAttribute("onclick","checkPass()");
     formLoc.appendChild(subBtn);
 
-}
+}*/
 
 function checkPass(){
    let allowPass = true;
-   let pwOne = document.getElementById("pass1").value;
-   let pwTwo = document.getElementById("pass2").value;
+   let pwOne = document.getElementById("newpass").value;
+   let pwTwo = document.getElementById("confirmpass").value;
 
    if(pwOne =="" || pwTwo ==""){
 
@@ -92,7 +92,7 @@ function checkPass(){
    }else if(allowPass === true){
 
     alert("Password Accepted");
-    location.reload();
+    //location.reload();
     
     }
 }
