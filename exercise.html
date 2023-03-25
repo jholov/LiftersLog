@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <div id = 'page'>
+        <Head>
+            <title>Lifter's Log Exercises</title>
+            <link rel="stylesheet" href="CSS/login.css">
+        </Head>
+        <body>
+            <div id = "logo">
+                 <img id="logo" src="img/lifterslog.png" alt="logo" height="300px" width="500px">
+            </div>
+            <div id = "headline">
+                <h1>Let's Workout</h1>
+            </div>
+            <form action="exercise.php" method="post">
+            <div id = "inputs">
+                <div class ="exercises">
+                    <label for="wt_exercises">Choose a Weighted Exercise</label>
+                    <select id="wt_exercises" name="wt_exercises">
+                        <option value="bench">Bench</option>
+                        <option value="inc_bench">Incline Bench</option>
+                        <option value="dcl_bench">Decline Bench</option>
+                        <option value="dmb_bench">Dumbbell Bench</option>
+                        <option value="dmb_inc_bench">Incline Dumbbell Bench</option>
+                        <option value="dmb_dcl_bench">Decline Dumbbell Bench</option>
+                        <option value="chest_flies">Chest Flies</option>
+                        <option value="wtsquat">Squat</option>
+                        <option value="leg_prs">Leg Press</option>
+                        <option value="leg_curls">Leg Curls</option>
+                        <option value="knee_ext">Knee Extentions</option>
+                        <option value="wt_lunges">Weighted Lunges</option>
+                        <option value="clf_raises">Calf Raises</option>
+                        <option value="deadlft">Deadlift</option>
+                        <option value="dmbbell_curl">Dumbbell Curl</option>
+                        <option value="barbell_curl">Barbell Curl</option>
+                        <option vlaue="hmmrfst_curl">Hammerfist Curl</option>
+                    </select>
+                    <input type ="number" placeholder="Enter Weight in Pounds" id="wt" name="wt">
+                    <input type ="number" placeholder="Enter Number of Sets" id="sets" name="sets">
+                    <input type ="number" placeholder="Enter Number of Reps" id="reps" name="reps">
+                    
+                    <label for="cardio_ex">Choose a Cardio Exercise</label>
+                    <select id="cardio_ex" name="cardio_ex">
+                        <option value="run">Running</option>
+                        <option value="bike">Biking</option>
+                        <option value="swim">Swimming</option>
+                        <option value="walk">Walking</option>
+                        <option value="stair">Stair Climbing</option>
+                    </select>
+                    <input type="number" placeholder="Enter Distance Completed(mi)" id="dist" name="dist">
+                    <input type="number" placeholder="Enter Time to Complete(min)" id="time" name="time">
+                    <input type="number" placeholder="Enter Heart Rate(bpm)" id="hrt_rate" name="hrt_rate">
+
+                    <label for="calist_ex">Choose a Calisthenic Exercise</label>
+                    <select id="calist_ex" name="calist_ex">
+                        <option value="pllups">PullUps</option>
+                        <option value="chnups">Chin-Ups</option>
+                        <option value="dips">Dips</option>
+                        <option value="pshups">Pushups</option>
+                        <option value="squats">Squats</option>
+                        <option value="crunches">Crunches</option>
+                        <option value="situps">Sit-Ups</option>
+                    </select>
+                    <input type="number" placeholder="Enter Number of Sets" id="cal_sets" name="cal_sets">
+                    <input type="number" placeholder="Enter Number of Reps" id="cal_reps" name="cal_reps">
+            
+                </div>
+            </div>
+            </form>
+        </body>
+    </div>
+</html>
