@@ -1,9 +1,118 @@
-//#page{
-    font-family: 'Courier New', Courier, monospace;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "logo logo headline headline ."
-                         ". inputs inputs inputs ."
-                         ". inputs inputs inputs ."
-                         ". . . . .";
-}
+/* Set background color and font */
+body {
+    background-color: #dd840f;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Center page content */
+  #page {
+    width: 50%;
+    margin: auto;
+  }
+  
+  /* Style the logo */
+  #logo {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  #logo img {
+    border-radius: 30%;
+    border: 10px solid white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+  
+  /* Style the headline */
+  #headline {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  #headline h1 {
+    font-size: 36px;
+    color: #040404;
+  }
+  
+  /* Style the input fields */
+  #inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .icontainer {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+  
+  .icontainer label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .icontainer input[type=text], .icontainer input[type=password] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    width: 100%;
+    margin-bottom: 20px;
+    
+  }
+  
+  .icontainer input[type=checkbox] {
+    margin-right: 10px;
+  }
+  
+  .icontainer button[type=submit], .button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .icontainer button[type=submit]:hover, .button:hover {
+    background-color: #555;
+  }
+  
+  /* Style the cancel button */
+  .container {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .cancelbtn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .cancelbtn:hover {
+    background-color: #ff6666;
+  }
+  
+  /* Style the forgot password link */
+  .psw {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .psw a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .psw a:hover {
+    text-decoration: underline;
+  }

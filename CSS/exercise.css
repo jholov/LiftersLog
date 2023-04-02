@@ -1,0 +1,75 @@
+
+
+  /* Style the page container */
+  #page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #dd840f;
+    
+  }
+  
+  /* Style the logo container */
+  #logo {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  #logo img {
+    border-radius: 30%;
+    border: 10px solid white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+  /* Style the headline */
+  #headline {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Style the form and its child elements */
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 100px;
+    width: 100%;
+  }
+  
+  .exercises {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  select,
+  input[type="number"] {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    background-color: #080808;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #333332;
+  }

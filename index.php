@@ -28,15 +28,23 @@
 
         if(mysqli_num_rows($result)==1){
             echo("You Have Successfully Logged in");
+
+            //starts the session after log in
+            session_start();
+            $session_id = session_id();
+            $_SESSION['username'] = $username;
+            header("Location: exercise.html");
             exit();
         }
         else
         {
             echo("You Have Entered Incorrect Password");
-            exit();
+            
         }
 
+
     }
+
         //signup page retrievals
         $firstname = $_POST['first'];
         $lastname = $_POST['last'];
