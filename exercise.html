@@ -12,7 +12,7 @@
             <div id = "headline">
                 <h1>Let's Workout</h1>
             </div>
-            <form action="exercise.php" method="post">
+           <form action="exercise.php" method="post"> 
             <div id = "inputs">
                 <div class ="exercises">
                     <label for="wt_exercises">Choose a Weighted Exercise</label>
@@ -42,6 +42,9 @@
 
                 <button type="submit">Submit</button>
 
+                <input type="text" placeholder="Enter Exercise Name" id="newWtExercise">
+                <button type="button" onclick="addWtExercise()">Add Exercise</button>
+
                     <label for="cardio_ex">Choose a Cardio Exercise</label>
                     <select id="cardio_ex" name="cardio_ex">
                         <option value="">--Select an Option--</option>
@@ -56,6 +59,9 @@
                     <input type="number" placeholder="Enter Heart Rate(bpm)" id="hrt_rate" name="hrt_rate">
 
                  <button type="submit">Submit</button>
+
+                 <input type="text" placeholder="Enter Exercise Name" id="newCdExercise">
+                 <button type="button" onclick="addCdExercise()">Add Exercise</button>
 
                     <label for="calist_ex">Choose a Calisthenic Exercise</label>
                     <select id="calist_ex" name="calist_ex">
@@ -72,9 +78,13 @@
                     <input type="number" placeholder="Enter Number of Reps" id="cal_reps" name="cal_reps">
 
                  <button type="submit">Submit</button>
+
+                 <input type="text" placeholder="Enter Exercise Name" id="newCaliExercise">
+                 <button type="button" onclick="addCaliExercise()">Add Exercise</button>
             
                 </div>
             </div>
+            <script src="js/exercise.js"></script>
             </form>
         </body>
     </div>

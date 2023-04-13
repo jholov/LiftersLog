@@ -11,11 +11,11 @@
     mysqli_select_db($mysql_connect,$db);
     
     if($mysql_connect === false){
-        die("mysql is not connected");
+       // die("mysql is not connected");
     }
     else
     {
-        echo("mysql is connected");
+       // echo("mysql is connected");
     }
     //checks login credentials
     if(isset($_POST['uname'])){

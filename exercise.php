@@ -9,11 +9,11 @@ $mysql_connect = mysqli_connect("$hs","$us","$ps","$db");
 mysqli_select_db($mysql_connect,$db);
 
 if($mysql_connect === false){
-    die("mysql is not connected");
+    //die("mysql is not connected");
 }
 else
 {
-    echo("mysql is connected");
+    //echo("mysql is connected");
 }
 
 session_start();
@@ -46,15 +46,15 @@ if($exercise != ""){
 
     $stmt->execute();
     if (mysqli_affected_rows($mysql_connect) > 0) {
-        echo "Data inserted successfully.";
+        //echo "Data inserted successfully.";
       } else {
-        echo "Error inserting data.";
+        //echo "Error inserting data.";
         echo mysqli_error($mysql_connect);
       }
     
     mysqli_stmt_close($stmt);
 } else {
-    echo "Please Pick a Weighted Exercise";
+    //echo "Please Pick a Weighted Exercise";
   }
 
 if($cd_exercise != ""){
@@ -66,9 +66,9 @@ if($cd_exercise != ""){
 
     $stmt2->execute();
     if (mysqli_affected_rows($mysql_connect) > 0) {
-      echo "Data inserted successfully.";
+      //echo "Data inserted successfully.";
     } else {
-      echo "Error inserting data.";
+      //echo "Error inserting data.";
       echo mysqli_error($mysql_connect);
     }
 
@@ -76,7 +76,7 @@ if($cd_exercise != ""){
    
 
 }else{
-  echo "Please Pick an Exercise";
+ // echo "Please Pick an Exercise";
 }
 
 if($cali_exercise != ""){
@@ -89,16 +89,16 @@ if($cali_exercise != ""){
   $stmt3->execute();
 
   if (mysqli_affected_rows($mysql_connect) > 0) {
-    echo "Data inserted successfully.";
+    //echo "Data inserted successfully.";
   } else {
-    echo "Error inserting data.";
+    //echo "Error inserting data.";
     echo mysqli_error($mysql_connect);
   }
 
   mysqli_stmt_close($stmt3);
 
 }else{
-  echo "Please Pick a Cali Exercise";
+  //echo "Please Pick a Cali Exercise";
 }
 
 mysqli_close($mysql_connect);
