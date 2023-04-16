@@ -92,7 +92,60 @@ if (mysqli_num_rows($retval) > 0) {
   }else {
     $caliResults .= "No results found.";
   }
-  
+
+  //sql statments for the projected max
+  if (isset($_POST['projBtn'])){
+
+     $projOpt = $_POST['proj_max'];
+
+    if($projOpt == "bench"){
+     $sql4 = "SELECT user_name, exercise, weight_lbs, number_reps, date_time FROM wt_exercises WHERE user_name='$username' AND exercise='$projOpt' ORDER BY date_time DESC LIMIT 1";
+        $retval4 = mysqli_query($mysql_connect, $sql4);
+
+        if(mysqli_num_rows($retval4) > 0){
+            while ($row = mysqli_fetch_assoc($retval4)){
+                $benchWt = $row["weight_lbs"];
+                $benchReps = $row["number_reps"];
+                $exercise = $row["exercise"];
+            }
+        }
+        //forumla for projected one rep max bench
+        $projVal = ($benchWt * $benchReps * .0333) + $benchWt;
+        echo "Your Projected Max Bench is !!" . $projVal . $exercise;
+
+        //squat projected max   
+    }else if ($projOpt == "squat"){
+        $sql5 = "SELECT user_name, exercise, weight_lbs, number_reps, date_time FROM wt_exercises WHERE user_name='$username' AND exercise='wtsquat' ORDER BY date_time DESC LIMIT 1";
+        $retval5 = mysqli_query($mysql_connect, $sql5);
+
+        if(mysqli_num_rows($retval5) > 0){
+            while ($row = mysqli_fetch_assoc($retval5)){
+                $squatWt = $row["weight_lbs"];
+                $squatReps = $row["number_reps"];
+                $exercise = $row["exercise"];
+            }
+        }
+
+        $projVal = ($squatWt * $squatReps * .0333) + $squatWt;
+        echo "Your Projected Max Squat is " . $projVal . $exercise;
+
+    }else if ($projOpt == "deadlift"){
+        $sql6 = "SELECT user_name, exercise, weight_lbs, number_reps, date_time FROM wt_exercises WHERE user_name='$username' AND exercise='$projOpt' ORDER BY date_time DESC LIMIT 1";
+        $retval6 = mysqli_query($mysql_connect, $sql6);
+
+        if(mysqli_num_rows($retval6) > 0){
+            while ($row = mysqli_fetch_assoc($retval6)){
+                $deadWt = $row["weight_lbs"];
+                $deadReps = $row["number_reps"];
+                $exercise = $row["exercise"];
+            }
+        }
+
+        $projVal = ($deadWt * $deadReps * .0333) + $deadWt;
+        echo "Your Projected Max Deadlift is " . $projVal;
+  }
+}
+
   // Close the database connection
   mysqli_close($mysql_connect);
   ?>
