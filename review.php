@@ -24,7 +24,6 @@ $username = $_SESSION['username'];
 $sql = "SELECT user_name, exercise, weight_lbs, number_sets, number_reps, date_time FROM wt_exercises WHERE user_name='$username'" ;
 $retval = mysqli_query($mysql_connect, $sql);
 
-$retval = mysqli_query($mysql_connect, $sql);
 if (!$retval) {
   die('Error executing query: ' . mysqli_error($mysql_connect));
 }
@@ -49,7 +48,6 @@ if (mysqli_num_rows($retval) > 0) {
   $sql2 = "SELECT user_name, exercise, distance_mi, time_min, heart_rate_bpm, date_time FROM cd_exercises WHERE user_name='$username'";
   $retval2 = mysqli_query($mysql_connect, $sql2);
 
-  $retval2 =mysqli_query($mysql_connect, $sql2);
   if (!$retval2) {
     die('Error executing query: ' . mysqli_error($mysql_connect));
   }
@@ -73,7 +71,6 @@ if (mysqli_num_rows($retval) > 0) {
   $sql3 = "SELECT user_name, exercise, number_sets, number_reps, date_time FROM cali_exercises WHERE user_name='$username'";
   $retval3 = mysqli_query($mysql_connect, $sql3);
 
-  $retval3 =mysqli_query($mysql_connect, $sql3);
   if (!$retval3) {
     die('Error executing query: ' . mysqli_error($mysql_connect));
   }
@@ -111,8 +108,9 @@ if (mysqli_num_rows($retval) > 0) {
         }
         //forumla for projected one rep max bench
         $projVal = ($benchWt * $benchReps * .0333) + $benchWt;
-        echo "Your Projected Max Bench is !!" . $projVal . $exercise;
-
+        echo "Your Projected Max Bench is " . $projVal;
+        
+        
         //squat projected max   
     }else if ($projOpt == "squat"){
         $sql5 = "SELECT user_name, exercise, weight_lbs, number_reps, date_time FROM wt_exercises WHERE user_name='$username' AND exercise='wtsquat' ORDER BY date_time DESC LIMIT 1";
@@ -145,6 +143,8 @@ if (mysqli_num_rows($retval) > 0) {
         echo "Your Projected Max Deadlift is " . $projVal;
   }
 }
+
+//graphing the outputs
 
   // Close the database connection
   mysqli_close($mysql_connect);

@@ -1,24 +1,102 @@
-const form = document.getElementById("review-form");
-const container = document.getElementById("results-container");
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault(); // prevent form from submitting normally
-
-  // create an XMLHttpRequest object
-  const xhr = new XMLHttpRequest();
-
-  // set up the request
-  xhr.open("POST", form.action, true);
-
-  // set up the onload function
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      container.innerHTML = xhr.responseText; // display the results in the container
-    } else {
-      container.innerHTML = "Error: " + xhr.status;
+/*function getMax() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "review.php", true);
+  xhttp.onreadystatechange = function() {
+    if (this.status == 200) {
+      var projmax = this.responseText;
+      var place = document.getElementById("ProjVal");
+      place.innerHTML = projmax;
+      console.log("What is this " + projmax);
     }
   };
+  xhttp.send();
+}*/
 
-  // send the request
-  xhr.send(new FormData(form));
+/*function getMax(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "review.php", true);
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var projmax = parseInt(this.responseText);
+      if (!isNaN(projmax)) {
+        var place = document.getElementById("ProjVal");
+        place.innerHTML = projmax;
+        console.log("projmax:", projmax);
+      } else {
+        console.error("Invalid response:", this.responseText);
+      }
+    } else {
+      console.error("Error:", this.status);
+    }
+  };
+  xhttp.send();
+}*/
+
+document.getElementById("projBtn").addEventListener("click", function() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "review.php", true);
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var projmax = parseInt(this.responseText);
+      if (!isNaN(projmax)) {
+        var place = document.getElementById("ProjVal");
+        place.innerHTML = projmax;
+        console.log("projmax:", projmax);
+      } else {
+        console.error("Invalid response:", this.responseText);
+      }
+    } else {
+      console.error("Error:", this.status);
+    }
+  };
+  xhttp.send();
+});
+
+/*function getMax(){
+  var newInput = document.getElementById("ProjVal");
+  newInput.innerHTML ="This button actually works";
+}*/
+
+// Get the canvas element
+var ctx = document.getElementById('myChart').getContext('2d');
+
+// Create a new chart object
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [], // array of labels for the x-axis
+        datasets: [{
+            label: 'Weight History', // label for the dataset
+            data: [], // array of data points for the y-axis
+            borderColor: 'blue', // color of the line
+            fill: false // don't fill the area under the line
+        }]
+    },
+    options: {
+        responsive: true, // make the chart responsive to window size
+        scales: {
+            xAxes: [{
+                type: 'time', // use time scale for the x-axis
+                time: {
+                    unit: 'day' // show labels by day
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true // start the y-axis at 0
+                }
+            }]
+        }
+    }
+});
+
+
+var sql = "SELECT date_time, weight_lbs FROM wt_exercises'";
+$.get("get_data.php", {sql: sql}, function(response) {
+    var data = JSON.parse(response);
+    for (var i = 0; i < data.length; i++) {
+        myChart.data.labels.push(data[i].date_time);
+        myChart.data.datasets[0].data.push(data[i].weight_lbs);
+    }
+    myChart.update(); // update the chart with the new data
 });
