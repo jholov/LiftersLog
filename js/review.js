@@ -1,3 +1,5 @@
+
+
 /*function getMax() {
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", "review.php", true);
@@ -32,7 +34,7 @@
   xhttp.send();
 }*/
 
-document.getElementById("projBtn").addEventListener("click", function() {
+/*document.getElementById("projBtn").addEventListener("click", function() {
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", "review.php", true);
   xhttp.onreadystatechange = function() {
@@ -58,6 +60,11 @@ document.getElementById("projBtn").addEventListener("click", function() {
 }*/
 
 // Get the canvas element
+
+
+
+
+
 var ctx = document.getElementById('myChart').getContext('2d');
 
 // Create a new chart object
@@ -92,7 +99,7 @@ var myChart = new Chart(ctx, {
 
 
 var sql = "SELECT date_time, weight_lbs FROM wt_exercises'";
-$.get("get_data.php", {sql: sql}, function(response) {
+$.get("review.php", {sql: sql}, function(response) {
     var data = JSON.parse(response);
     for (var i = 0; i < data.length; i++) {
         myChart.data.labels.push(data[i].date_time);

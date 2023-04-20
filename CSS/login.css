@@ -59,8 +59,9 @@ body {
     border: none;
     border-radius: 5px;
     background-color: #f2f2f2;
-    width: 100%;
+    width: 95%;
     margin-bottom: 20px;
+    
     
   }
   
@@ -69,6 +70,7 @@ body {
   }
   
   .icontainer button[type=submit], .button {
+    
     background-color: #333;
     color: white;
     border: none;
@@ -82,37 +84,6 @@ body {
     background-color: #555;
   }
   
-  /* Style the cancel button */
-  .container {
-    margin-top: 10px;
-    text-align: center;
-  }
   
-  .cancelbtn {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
   
-  .cancelbtn:hover {
-    background-color: #ff6666;
-  }
-  
-  /* Style the forgot password link */
-  .psw {
-    display: inline-block;
-    margin-top: 10px;
-  }
-  
-  .psw a {
-    color: #000000;
-    text-decoration: none;
-  }
-  
-  .psw a:hover {
-    text-decoration: underline;
-  }
+
