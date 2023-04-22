@@ -24,6 +24,7 @@ $exercise=$_POST['wt_exercises'];
 $weight=$_POST['wt'];
 $sets=$_POST['sets'];
 $reps=$_POST['reps'];
+$muscle_group='';
 
 //cd exercise information grab
 $cd_exercise=$_POST['cardio_ex'];
@@ -36,26 +37,49 @@ $cali_exercise=$_POST['calist_ex'];
 $cali_sets=$_POST['cal_sets'];
 $cali_reps=$_POST['cal_reps'];
 
+//stores excise names as keys and muscle group as values
+$exerciseArray = array(
+  "Bench" => "Chest",
+  "Incline_Bench" => "Chest",
+  "Decline_Bench" => "Chest",
+  "Dumbbell_Bench" => "Chest",
+  "Incline_Dumbbell_Bench" => "Chest",
+  "Decline_Dumbbell_Bench" => "Chest",
+  "Chest_Flies" => "Chest",
+  "Barbell_Squat" => "Legs",
+  "Leg_Press" => "Legs",
+  "Leg_Curls" => "Legs",
+  "Knee_Extensions" => "Legs",
+  "Weighted_Lunges" => "Legs",
+  "Calf_Raises" => "Legs",
+  "Deadlift" => "Back",
+  "Bent_Over_Dumbbell_Rows" => "Back",
+  "Lat_Pulldowns" => "Back",
+  "Reverse_Flies" => "Back",
+  "Dumbbell_Curl" => "Arms",
+  "Barbell_Curl" => "Arms",
+  "Hammerfist_Curl" => "Arms",
+  "Dumbbell_Tricep_Extension" => "Arms",
+  "Barbell_Tricep_Extension" => "Arms",
+);
 
-if($exercise != ""){
-    //prepares the SQl statement
-    $stmt = mysqli_prepare($mysql_connect, "INSERT INTO wt_exercises(user_name, exercise, weight_lbs, number_sets, number_reps) VALUES (?, ?, ?, ?, ?)");
+if (array_key_exists($exercise, $exerciseArray)){
+  $muscle_group = $exerciseArray[$exercise];
+  //prepares the SQl statement
+  $stmt = mysqli_prepare($mysql_connect, "INSERT INTO wt_exercises(user_name, exercise, weight_lbs, number_sets, number_reps, muscle_group) VALUES (?, ?, ?, ?, ?, ?)");
 
-    //binds the parameters and execute the statement
-    $stmt->bind_param("ssiii", $username, $exercise, $weight, $sets, $reps);
+  //binds the parameters and execute the statement
+  $stmt->bind_param("ssiiis", $username, $exercise, $weight, $sets, $reps, $muscle_group);
 
-    $stmt->execute();
-    if (mysqli_affected_rows($mysql_connect) > 0) {
-        //echo "Data inserted successfully.";
-      } else {
-        //echo "Error inserting data.";
-        echo mysqli_error($mysql_connect);
-      }
-    
-    mysqli_stmt_close($stmt);
-} else {
-    //echo "Please Pick a Weighted Exercise";
-  }
+  $stmt->execute();
+  if (mysqli_affected_rows($mysql_connect) > 0) {
+      echo "Data inserted successfully.";
+    } else {
+      echo "Error inserting data.";
+      echo mysqli_error($mysql_connect);
+    }
+  mysqli_stmt_close($stmt);
+}
 
 if($cd_exercise != ""){
     //prepares the SQL statement

@@ -20,12 +20,11 @@
                 <a href="exercise.html">Workout</a>
                 <a href="review2.php">Review</a>
             </div>
-          
-            <h1>Results</h1>
             <table class="table table-bordered text-center">
                 <h1>Previous Weight Exercises</h1>
                 <td><?php echo $results; ?></td>
             </table>
+            
             <label for="proj_max">Calculate Your Projected Max</label>
             <form id ="projForm" action="review.php" method="post"> 
             <select id = "proj_max" name = "proj_max">
@@ -35,7 +34,6 @@
             </select>
             <button type="button" name="projBtn" id="projBtn" >Submit</button>
             <div id ="ProjVal">Test</div>
-            
         <script> 
             $(document).ready(function(){
                 $("#projBtn").click(function() {
@@ -47,9 +45,6 @@
                 });
             });
 	    </script> 
-                
-          
-            
             <table class="table table-bordered text-center">
                 <h1>Previous Cardio Exercises</h1>
                 <td><?php echo $cdResults; ?></td>
@@ -58,17 +53,33 @@
                 <h1>Previous Calisthenic Exercises </h1>
                 <td><?php echo $caliResults; ?></td>
 
-            </table><!-- new stuff-->
+            </table><!-- new stuff doesnt function-->
                 <label for="exercise">Select an exercise:</label>
                 <select id="grpExercise" name="grpExercise">
-                    <option value="bench">Bench Press</option>
-                    <option value="wtsquat">Squat</option>
-                     <option value="deadlift">Deadlift</option>
+                    <option value="Bench">Bench Press</option>
+                    <option value="Barbell_Squat">Squat</option>
+                     <option value="Deadlift">Deadlift</option>
                 </select>
             
                 <input type="button" name = "chartBtn" id = "chartBtn" value="Generate Chart">
                 <canvas id ="myChart"></canvas>
                 </form> 
+                 <!--New Stuff if Broken Delete -->
+            <label for="suggest">Workout Suggestions</label> 
+            <form id ="analysisForm" action="analysis.php" method="post">
+                <button type="button" name="suggestBtn" id="suggestBtn">Analyze</button>
+                <div id ="suggestVal">Test</div>  
+                <script> 
+            $(document).ready(function(){
+                $("#suggestBtn").click(function() {
+                    $.post("analysis.php", function(data) {
+                        console.log($("#suggestVal").text);
+                        $("#suggestVal").html(data);
+                    });
+                });
+            });
+	    </script> 
+            </form>
             
             <script>
                 var data = JSON.parse('<?php echo $data_json; ?>');
