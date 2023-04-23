@@ -37,7 +37,7 @@ $cali_exercise=$_POST['calist_ex'];
 $cali_sets=$_POST['cal_sets'];
 $cali_reps=$_POST['cal_reps'];
 
-//stores excise names as keys and muscle group as values
+//stores exercise names as keys and muscle group as values
 $exerciseArray = array(
   "Bench" => "Chest",
   "Incline_Bench" => "Chest",

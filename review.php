@@ -23,8 +23,9 @@ $username = $_SESSION['username'];
 //query for weight exercises for user logged in
 $sql = "SELECT user_name, exercise, weight_lbs, number_sets, number_reps, date_time 
         FROM wt_exercises 
-        WHERE user_name='$username'";
-        
+        WHERE user_name='$username'
+        ORDER BY date_time DESC";
+
 $retval = mysqli_query($mysql_connect, $sql);
 
 if (!$retval) {
@@ -50,7 +51,8 @@ if (mysqli_num_rows($retval) > 0) {
   //query for cardio exercises for user logged in
   $sql2 = "SELECT user_name, exercise, distance_mi, time_min, heart_rate_bpm, date_time 
            FROM cd_exercises
-           WHERE user_name='$username'";
+           WHERE user_name='$username'
+           ORDER BY date_time DESC";
 
   $retval2 = mysqli_query($mysql_connect, $sql2);
 
@@ -76,7 +78,8 @@ if (mysqli_num_rows($retval) > 0) {
  //query for cardio exercises for user logged in
   $sql3 = "SELECT user_name, exercise, number_sets, number_reps, date_time 
            FROM cali_exercises 
-           WHERE user_name='$username'";
+           WHERE user_name='$username'
+           ORDER BY date_time DESC";
 
   $retval3 = mysqli_query($mysql_connect, $sql3);
 
@@ -99,7 +102,7 @@ if (mysqli_num_rows($retval) > 0) {
     $caliResults .= "No results found.";
   }
 
-  //projected max grab
+    //projected max grab
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       $projOpt = $_POST['proj_max'];
@@ -181,8 +184,6 @@ if (mysqli_num_rows($retval) > 0) {
             
   }
 }
-
-
 //graphing the outputs
   $weight="";
   $reps="";

@@ -77,7 +77,6 @@ body {
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
-    transition: background-color 0.2s;
   }
   
   .icontainer button[type=submit]:hover, .button:hover {
