@@ -18,6 +18,7 @@ else
 
 session_start();
 
+
 $exerciseArray = array(
     "Bench" => "Chest",
     "Incline_Bench" => "Chest",
@@ -75,14 +76,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     arsort($counts);
     $highest_muscle_group = key($counts);
     $least_muscle_group = key(array_slice($counts, -1, 1, true));
-
+   
     $sql2="SELECT exercise
            FROM wt_exercises
            WHERE muscle_group = '$highest_muscle_group'";
 
     $retval2 = mysqli_query($mysql_connect, $sql2);
 
-    echo "You seem to be targeting your " . $highest_muscle_group ." the most. Here are some other exercises that might be helpful that you haven't done to switch it up:<br>";
+    echo "You seem to be targeting your " . $highest_muscle_group ." the most. Here are some other exercises that might be helpful that you haven't done to switch it up.";
 
     //stores the exercises users have done in an array that match the highest muscle group
     $db_exercises = array();
@@ -93,42 +94,102 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //creates an array of exercises the user has not done yet to suggest different exercises for the highest_muscle_group
     $empty_exercises = array();
     $empty_exercises = array_diff($exerciseArray, $db_exercises);
-        if(!empty($empty_exercises)){
-            echo "These are some other exercises that will target your " . $highest_muscle_group . " that you haven't done yet:<br>";
-            foreach ($empty_exercises as $exercise => $muscle_group) {
-                if($muscle_group == $highest_muscle_group && !in_array($exercise, $db_exercises)){
-                echo "- " . $exercise . "<br>";
-                }
+    if(!empty($empty_exercises)){
+        echo "These are some other exercises that will target your " . $highest_muscle_group . " that you haven't done yet:<br>";
+        foreach ($empty_exercises as $exercise => $muscle_group) {
+            if($muscle_group == $highest_muscle_group && !in_array($exercise, $db_exercises)){
+            echo "- " . $exercise . "<br>";
             }
-        }else{
-            echo "It looks like you have done a wide variety of exercises for " . $highest_muscle_group . " keep up the good work and make sure to keep rotating your routine! <br>";
         }
-       
+    }else{
+        echo "It looks like you have done a wide variety of exercises for " . $highest_muscle_group . " keep up the good work and make sure to keep rotating your routine! <br>";
+    }
+
     echo "<br>You seem to be targeting your " . $least_muscle_group ." the least. Here are some previous exercises you have done in the past. Remember, consistency is key!<br>";
 
-  
     $sql3="SELECT exercise
            FROM wt_exercises
            WHERE muscle_group = '$least_muscle_group'";
-    
+        
     $retval3 = mysqli_query($mysql_connect, $sql3);
 
     if(mysqli_num_rows($retval3) > 0){
         while ($row = mysqli_fetch_assoc($retval3)) {
-            echo $row['exercise'] . "<br>";
-        }
-        
+            echo "- " . $row['exercise'] . "<br>";
+        }   
     }else{
-        echo "It looks like you haven't done any exercises that target this area before here are some suggestions <br>";
-        foreach ($exerciseArray as $exercise => $muscle_group){
-            if($muscle_group == $least_muscle_group){
-                echo "-" . $exercise . "<br>";
+        echo "It looks like you haven't done any exercises that target this area before, here are some suggestions <br>";
+            foreach ($exerciseArray as $exercise => $muscle_group){
+                if($muscle_group == $least_muscle_group){
+                    echo "-" . $exercise . "<br>";
+                }
             }
+        while ($row3 = mysqli_fetch_assoc($retval3)) {
+            echo "- " . $row3['exercise'] . "<br>";
         }
     }
+    //sets a variable with todays date/time along with one a week ago
+    $today = new DateTime();
+    $week_ago = $today;
+    $week_ago-> modify('-1 week');
 
+    $sql4="SELECT user_name, exercise, date_time
+           FROM cd_exercises
+           WHERE user_name = '$username' AND date_time >= '{$week_ago->format('Y-m-d H:i:s')}'";
+    
+    $retval4 = mysqli_query($mysql_connect, $sql4);
+    if(mysqli_num_rows($retval4) > 0){
+        echo "<br>It looks like you have been consistently doing cardio, Nice Job! Keep up doing these exercises: <br>";
+        while ($row = mysqli_fetch_assoc($retval4)) {
+            echo "-" . $row['exercise'] . "<br>";
+            
+        }   
+    }else{
+        echo "<br>It looks like you haven't done any ardio exercises this past week. Cardio is important for maintaining a healthy lifestyle." .
+             " Maybe try these again that you have done in the past:<br>";
 
-    while ($row3 = mysqli_fetch_assoc($retval3)) {
-        echo "- " . $row3['exercise'] . "<br>";
+         $sql5="SELECT user_name, exercise
+           FROM cd_exercises
+           WHERE user_name = '$username'";
+        
+        $retval5 = mysqli_query($mysql_connect, $sql5);
+            if(mysqli_num_rows($retval5) > 0){
+              while ($row = mysqli_fetch_assoc($retval5)) {
+                    echo "-" . $row['exercise'] . "<br>";
+                
+                }   
+            }else{
+                echo "It looks like you have not done any cardio yet. Try giving it a shot!";
+            }
     }
+
+    $sql5="SELECT user_name, exercise, date_time
+           FROM cali_exercises
+           WHERE user_name = '$username' AND date_time >= '{$week_ago->format('Y-m-d H:i:s')}'";
+
+    $retval5 = mysqli_query($mysql_connect, $sql5);
+    if(mysqli_num_rows($retval5) > 0){
+        echo "<br>It looks like you have been consistently doing calisthenic workouts, Great Job! <br> Keep up doing these exercises: <br>";
+        while ($row = mysqli_fetch_assoc($retval5)) {
+            echo "-" . $row['exercise'] . "<br>";
+        
+        }
+    }else{
+        echo "<br>It looks like you haven't done any calisthenic exercises this past week. Make sure you to incorporate some into your routine." .
+             " Maybe try these ones again that you have done in the past:<br>";
+
+         $sql6="SELECT user_name, exercise
+           FROM cali_exercises
+           WHERE user_name = '$username'";
+        
+        $retval6 = mysqli_query($mysql_connect, $sql6);
+            if(mysqli_num_rows($retval6) > 0){
+              while ($row = mysqli_fetch_assoc($retval6)) {
+                    echo "-" . $row['exercise'] . "<br>";
+                
+                }   
+            }else{
+                echo "It appears you have not done any calisthenics yet. These exercises are great for beginners and are less intimidating to start.";
+            }
+        }   
 }

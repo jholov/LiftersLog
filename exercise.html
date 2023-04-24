@@ -15,7 +15,7 @@
             <div class = "nav">
                 <a href="login.html">Login</a>
                 <a href="exercise.html">Workout</a>
-                <a href="review2.php">Review</a>
+                <a href="reviewpage.php">Review</a>
             </div>
                 
            <form action="exercise.php" method="post"> 
@@ -54,6 +54,13 @@
                 <button type="submit">Submit</button>
 
                 <input type="text" placeholder="Enter Exercise Name" id="newWtExercise">
+                <select id ="muscle_group" name="muscle_group">
+                    <option value="">--Select a Muscle Group for Your Exercise</option>
+                    <option value="Chest">Chest</option>
+                    <option value="Back">Back</option>
+                    <option value="Arms">Arms</option>
+                    <option value="Legs">Legs</option>
+                </select>
                 <button type="button" onclick="addWtExercise()">Add Exercise</button>
 
                     <label for="cardio_ex">Choose a Cardio Exercise</label>

@@ -184,6 +184,7 @@ if (mysqli_num_rows($retval) > 0) {
             
   }
 }
+
 //graphing the outputs
   $weight="";
   $reps="";
@@ -191,7 +192,6 @@ if (mysqli_num_rows($retval) > 0) {
   $grpExer ="";
 
   if (isset($_POST['chartBtn'])){
-   
 
     $grpExer = $_POST['grpExercise'];
 
@@ -212,7 +212,7 @@ if (mysqli_num_rows($retval) > 0) {
 
     $data_json = json_encode($data);
                 
-    //echo $weight . " " . $reps;
+    echo $weight . " " . $reps;
   };
 
   // Close the database connection

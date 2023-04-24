@@ -8,7 +8,7 @@
             <title>Lifter's Log Review</title>
             <link rel="stylesheet" href="CSS/review.css">
         </Head>
-        <body>
+        <body style="margin: 0;">
             <div id = "logo">
                 <img id="logo" src="img/lifterslog.png" alt="logo" height="300px" width="500px">
             </div>
@@ -27,13 +27,13 @@
             
             <label for="proj_max">Calculate Your Projected Max</label>
             <form id ="projForm" action="review.php" method="post"> 
-            <select id = "proj_max" name = "proj_max">
+            <select type = "text" id = "proj_max" name = "proj_max">
                         <option value="bench">Bench</option>
                         <option value="squat">Squat</option>
                         <option value="deadlift">Deadlift</option>
             </select>
             <button type="button" name="projBtn" id="projBtn" >Submit</button>
-            <div id ="ProjVal">Test</div>
+            <div id ="ProjVal"></div>
         <script> 
             $(document).ready(function(){
                 $("#projBtn").click(function() {
@@ -68,7 +68,7 @@
             <label for="suggest">Workout Suggestions</label> 
             <form id ="analysisForm" action="analysis.php" method="post">
                 <button type="button" name="suggestBtn" id="suggestBtn">Analyze</button>
-                <div id ="suggestVal">Test</div>  
+                <div id ="suggestVal"></div>  
                 <script> 
             $(document).ready(function(){
                 $("#suggestBtn").click(function() {
@@ -80,22 +80,14 @@
             });
 	    </script> 
             </form>
-            
             <script>
                 var data = JSON.parse('<?php echo $data_json; ?>');
                 console.log(data);
             
             </script>
-            
-
         <div>
-  
 </div>
-
-
         </body>
-        <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
-        <!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
         <script src="js/review.js"></script> 
     
     </div>

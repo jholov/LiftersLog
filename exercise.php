@@ -25,6 +25,7 @@ $weight=$_POST['wt'];
 $sets=$_POST['sets'];
 $reps=$_POST['reps'];
 $muscle_group='';
+$user_exer_mg=$_POST['muscle_group'];
 
 //cd exercise information grab
 $cd_exercise=$_POST['cardio_ex'];
@@ -63,7 +64,7 @@ $exerciseArray = array(
   "Barbell_Tricep_Extension" => "Arms",
 );
 
-if (array_key_exists($exercise, $exerciseArray)){
+if (array_key_exists($exercise, $exerciseArray) && $exercise!=""){
   $muscle_group = $exerciseArray[$exercise];
   //prepares the SQl statement
   $stmt = mysqli_prepare($mysql_connect, "INSERT INTO wt_exercises(user_name, exercise, weight_lbs, number_sets, number_reps, muscle_group) VALUES (?, ?, ?, ?, ?, ?)");
@@ -79,7 +80,24 @@ if (array_key_exists($exercise, $exerciseArray)){
       echo mysqli_error($mysql_connect);
     }
   mysqli_stmt_close($stmt);
-}
+}else if($exercise!=""){
+  $muscle_group = $user_exer_mg;
+   //prepares the SQl statement
+   $stmt = mysqli_prepare($mysql_connect, "INSERT INTO wt_exercises(user_name, exercise, weight_lbs, number_sets, number_reps, muscle_group) VALUES (?, ?, ?, ?, ?, ?)");
+
+   //binds the parameters and execute the statement
+   $stmt->bind_param("ssiiis", $username, $exercise, $weight, $sets, $reps, $muscle_group);
+ 
+   $stmt->execute();
+   if (mysqli_affected_rows($mysql_connect) > 0) {
+       echo "Data inserted successfully.";
+     } else {
+       echo "Error inserting data.";
+       echo mysqli_error($mysql_connect);
+     }
+   mysqli_stmt_close($stmt);
+ 
+}else{}
 
 if($cd_exercise != ""){
     //prepares the SQL statement
@@ -100,7 +118,7 @@ if($cd_exercise != ""){
    
 
 }else{
- // echo "Please Pick an Exercise";
+  echo "Please Pick an Exercise";
 }
 
 if($cali_exercise != ""){

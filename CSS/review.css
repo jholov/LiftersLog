@@ -1,5 +1,13 @@
 
-
+#page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #dd840f;
+    
+}
+   
 body {
     font-family: Arial, sans-serif;
     background-color:  #dd840f;
@@ -38,12 +46,12 @@ label {
     margin-bottom: 10px;
     font-weight: bold;
     
-
 }
 
 select{
   display: block;
   margin-bottom: 10px;
+  margin-right: 5px;
   padding: 5px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -52,6 +60,14 @@ select{
 
 .nav a:hover {
     background-color: #3e8e41;
+}
+
+form {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center; 
+    max-width: 500px; 
+    width: 100%;
 }
 
 h1 {
@@ -66,13 +82,18 @@ button[type="button"] {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
+}
+
+button[type="button"]:hover {
+    background-color: #333332;
+}
+ 
+#ProjVal {
+    font-size: larger;
   }
-
-
 table {
     margin: 50px auto;
     border-collapse: collapse;
-    background-color:#f2f2f2 ;
 }
 
 table td {
@@ -85,4 +106,8 @@ table th {
     padding: 10px;
     border: 1px solid #ddd;
     background-color: #f2f2f2;
+}
+
+#suggestVal {
+    font-size: larger;
 }
