@@ -18,7 +18,7 @@
             <div class = "nav">
                 <a href="login.html">Login</a>
                 <a href="exercise.html">Workout</a>
-                <a href="review2.php">Review</a>
+                <a href="reviewpage.php">Review</a>
             </div>
             <table class="table table-bordered text-center">
                 <h1>Previous Weight Exercises</h1>
@@ -34,17 +34,17 @@
             </select>
             <button type="button" name="projBtn" id="projBtn" >Submit</button>
             <div id ="ProjVal"></div>
-        <script> 
-            $(document).ready(function(){
-                $("#projBtn").click(function() {
-                    var projOpt = $("#proj_max").val();
-                    $.post("review.php", {proj_max: projOpt}, function(data) {
-                        console.log($("#ProjVal").text);
-                        $("#ProjVal").html(data);
+            <script> 
+                $(document).ready(function(){
+                    $("#projBtn").click(function() {
+                        var projOpt = $("#proj_max").val();
+                        $.post("review.php", {proj_max: projOpt}, function(data) {
+                            console.log($("#ProjVal").text);
+                            $("#ProjVal").html(data);
+                        });
                     });
                 });
-            });
-	    </script> 
+            </script> 
             <table class="table table-bordered text-center">
                 <h1>Previous Cardio Exercises</h1>
                 <td><?php echo $cdResults; ?></td>
@@ -64,12 +64,11 @@
                 <input type="button" name = "chartBtn" id = "chartBtn" value="Generate Chart">
                 <canvas id ="myChart"></canvas>
                 </form> 
-                 <!--New Stuff if Broken Delete -->
             <label for="suggest">Workout Suggestions</label> 
             <form id ="analysisForm" action="analysis.php" method="post">
                 <button type="button" name="suggestBtn" id="suggestBtn">Analyze</button>
                 <div id ="suggestVal"></div>  
-                <script> 
+            <script> 
             $(document).ready(function(){
                 $("#suggestBtn").click(function() {
                     $.post("analysis.php", function(data) {
@@ -78,7 +77,7 @@
                     });
                 });
             });
-	    </script> 
+	        </script> 
             </form>
             <script>
                 var data = JSON.parse('<?php echo $data_json; ?>');
@@ -86,7 +85,7 @@
             
             </script>
         <div>
-</div>
+        </div>
         </body>
         <script src="js/review.js"></script> 
     

@@ -42,7 +42,6 @@
             
         }
 
-
     }
 
         //signup page retrievals
@@ -87,8 +86,5 @@
             $stmt2->close();
             $conn->close();
         }
-
-     
-    
 
 ?>
