@@ -15,3 +15,5 @@
 ![Screenshot 2024-10-08 001823](https://github.com/user-attachments/assets/a9ea599b-5a43-4de9-805c-e8ff5e81c6d0)
 
 ![Screenshot 2024-10-08 001905](https://github.com/user-attachments/assets/2c5f3abe-bd5a-4745-b423-1d8870d8b5ab)
+
+## If you input your own exercise, make sure to select the main muscle group it hits as this is used to reccomend other workouts.
