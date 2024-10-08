@@ -16,9 +16,9 @@
 
 ![Screenshot 2024-10-08 001905](https://github.com/user-attachments/assets/2c5f3abe-bd5a-4745-b423-1d8870d8b5ab)
 
-## If you input your own exercise, make sure to select the main muscle group it hits as this is used to recomend other workouts.
+## If you input your own exercise, make sure to select the main muscle group it hits as this is used to recommend other workouts.
 
-## The review tab will show all your exercises and workouts you have record in a table.
+## The review tab will show all your exercises and workouts you have recorded in a table.
 
 ![image](https://github.com/user-attachments/assets/8047396c-f7f6-48b1-b6ca-5f17cd9e46b0)
 
