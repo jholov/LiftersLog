@@ -22,3 +22,6 @@
 
 ![image](https://github.com/user-attachments/assets/8047396c-f7f6-48b1-b6ca-5f17cd9e46b0)
 
+## At the bottom of the review page, there is an analyze button that will examine what workouts/exercises you have done or haven't done and give you recommendations based off your data.
+
+![Screenshot 2024-10-08 002915](https://github.com/user-attachments/assets/15cec687-9770-41e7-9fda-e996a585f099)
