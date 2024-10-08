@@ -1,7 +1,17 @@
-# Welcome to LiftersLog a fitness tracking app that lets you record your exercises, sets and reps!
+# Welcome to Lifter's Log a fitness tracking app that lets you record your exercises, sets and reps!
 
 ![Screenshot 2024-10-07 235753](https://github.com/user-attachments/assets/292dfba9-45de-4021-9497-055da0ab87d0)
 
 ## First you will need to do is create an account on the login page.
 
 ![Screenshot 2024-10-08 000107](https://github.com/user-attachments/assets/c289e1da-599f-4c6b-8add-c36c4b10d57a)
+
+## Your information will be saved in a MySQL database to allow for successful logins and to add your exercises for tracking.
+
+## Once your account is created you should be able to log in and start adding your workouts.
+
+## You can choose one of the exercises in the drop down menu already added or input your own!
+
+![Screenshot 2024-10-08 001823](https://github.com/user-attachments/assets/a9ea599b-5a43-4de9-805c-e8ff5e81c6d0)
+
+![Screenshot 2024-10-08 001905](https://github.com/user-attachments/assets/2c5f3abe-bd5a-4745-b423-1d8870d8b5ab)
